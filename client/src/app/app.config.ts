@@ -1,12 +1,18 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Routes } from '@angular/router';
 
-import { routes } from '../app.routes';
+import { provideAuth } from './components/auth/auth.provider';
+import { provideNotifications } from './components/shared/notificacao/notificacao.provider';
+
+export const routes: Routes = [];
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes)
+    provideRouter(routes),
+
+    provideNotifications(),
+    provideAuth(),
   ]
 };
